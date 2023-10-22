@@ -42,6 +42,23 @@
   align-items: center;
   gap: 10px;
 }
+.yearItem {
+  width: 75%;
+  background-color: #eff2f5;
+}
+
+.countryItem {
+  width: 80%;
+  background-color: #eff2f5;
+}
+.yearText {
+  width: 25%;
+  text-align: center;
+}
+.countryText {
+  width: 20%;
+  text-align: center;
+}
 .purchaseContainer,
 .salePriceContainer,
 .expensesContainer,
@@ -59,6 +76,23 @@
   gap: 10px;
   flex-direction: column;
   margin-top: 10px;
+}
+
+.capitalTaxContainer {
+  border-radius: 5px;
+  background: #ebf9f4;
+  text-align: center;
+}
+.taxPayContainer {
+  border-radius: 5px;
+  background: #ebf2ff;
+  text-align: center;
+}
+.capitalTaxContainer,
+.taxPayContainer span {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 5px;
 }
 .inputContainer {
   background-color: #eff2f5;
@@ -88,6 +122,10 @@ input {
   border: 1px solid gray;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 20px;
+  padding: 0px 10px 0px 0px;
+  text-align: right;
+  font-weight: bold;
 }
 .investmentActive {
   border: 2px solid blue;
@@ -95,6 +133,11 @@ input {
   height: 50px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 30px;
+  padding: 0px 10px 0px 0px;
+  text-align: right;
+  font-weight: bold;
+  color: blue;
 }
 .monthContainer {
   width: 90%;
@@ -149,26 +192,25 @@ input {
   width: 50%;
   margin: 10px auto;
 }
+
 .getStartedWrapper button {
-  border: mone;
+  border: none;
   outline: none;
-  width: 15vw;
-  height: 10vh;
+  width: 20vw;
+  height: 30vh;
   border-radius: 8px;
   margin: 20px auto;
   font-size: 16px;
   font-weight: 600;
+  background: #ffff;
 }
 
-/* Your existing styles */
-
-/* Add this media query for screens less than 800px wide */
 @media (max-width: 800px) {
   .mainContainer {
-    flex-direction: column; /* Stack elements vertically */
+    flex-direction: column;
   }
   .mainWrapper {
-    width: 90%; /* Make the main content wider on smaller screens */
+    width: 90%;
   }
   .yearCountry,
   .salePurchaseContainer,
@@ -176,8 +218,8 @@ input {
   .incomeTaxRateContainer,
   .capitalGainLongTermGainContainer,
   .taxContainer {
-    flex-direction: column; /* Stack these elements vertically */
-    align-items: flex-start; /* Adjust alignment */
+    flex-direction: column;
+    align-items: flex-start;
   }
   .financialYear,
   .country,
@@ -191,19 +233,41 @@ input {
   .longTermGainContainer,
   .capitalTaxContainer,
   .taxPayContainer {
-    width: 100%; /* Make these elements take full width */
+    width: 100%;
   }
+  .financialYear,
+  .country {
+    flex-direction: column;
+  }
+  .yearItem,
+  .countryItem {
+    width: 100%;
+  }
+  .yearText,
+  .countryText {
+    width: 100%;
+    text-align: left;
+  }
+  .monthItems {
+    width: 90%;
+    justify-content: flex-start;
+    gap: 80px;
+  }
+  .taxInput {
+    font-size: 12px;
+  }
+
   .getStartedWrapper {
-    width: 90%; /* Make the get started section wider on smaller screens */
-    margin: 10px auto; /* Adjust margin */
+    width: 90%;
+    margin: 10px auto;
   }
   .getStartedImage {
-    height: 30%; /* Resize the image */
-    width: 60%; /* Resize the image */
+    height: 30%;
+    width: 60%;
   }
   .getStartedWrapper button {
-    width: 60vw; /* Adjust button width */
-    height: 8vh; /* Adjust button height */
-    margin: 10px auto; /* Adjust button margin */
+    width: 60vw;
+    height: 8vh;
+    margin: 20px auto;
   }
 }

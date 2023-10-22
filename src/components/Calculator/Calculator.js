@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Calculator.module.css";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 import getStarted from "../images/Frame.png";
 
 const Calculator = () => {
@@ -85,16 +84,24 @@ const Calculator = () => {
         : parseFloat(purchasePrice);
     const expensesValue =
       newExpenses !== undefined ? newExpenses : parseFloat(expenses);
+
     if (salePriceValue >= 0 && purchasePriceValue >= 0 && expensesValue >= 0) {
       const newCapitalGains =
         salePriceValue - purchasePriceValue - expensesValue;
-      setCapitalGains(newCapitalGains);
-      setDiscount(newCapitalGains / 2);
+
+      if (newCapitalGains > 0) {
+        setCapitalGains(newCapitalGains);
+        setDiscount(newCapitalGains / 2);
+      } else {
+        setCapitalGains(newCapitalGains);
+        setDiscount(0);
+      }
     } else {
       setCapitalGains(0);
       setDiscount(0);
     }
   };
+
   useEffect(() => {}, [activeInvestment]);
   const handleInvestment = (value) => {
     setActiveInvestment(value);
@@ -106,44 +113,73 @@ const Calculator = () => {
         <h2>Free Crypto Tax Calculator Australia</h2>
         <div className={styles.yearCountry}>
           <div className={styles.financialYear}>
-            <div>
-              <span>Financial Year</span>
-            </div>
-            <div>
-              <DropdownButton
-                id="dropdown-button-dark-example2"
-                variant="secondary"
-                title={selectedYear}
-                className="mt-2"
-                data-bs-theme="dark"
+            <div className={styles.yearText}>
+              <span
+                style={{ fontSize: "16px", fontWeight: "400", color: "black" }}
               >
-                <Dropdown.Item onClick={() => handleYearSelect("FY 2023-24")}>
-                  FY 2023-24
-                </Dropdown.Item>
-              </DropdownButton>
+                Financial Year
+              </span>
+            </div>
+            <div className={styles.yearItem}>
+              <Dropdown>
+                <Dropdown.Toggle
+                  id="dropdown-basic"
+                  variant="none"
+                  size="100"
+                  className={styles.dropdownIncome}
+                  style={{ width: "100%" }}
+                >
+                  {selectedYear}
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    onClick={() => handleYearSelect("FY 2023-24")}
+                    style={{ border: "none", outline: "none" }}
+                  >
+                    FY 2023-24
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
           </div>
           <div className={styles.country}>
-            <div style={{ width: "30%" }}>
-              <span>Country</span>
-            </div>
-            <div style={{ width: "70%" }} className={styles.dropdownIncome}>
-              <DropdownButton
-                id="dropdown-button-dark-example2"
-                variant="none"
-                title={selectedCountry}
+            <div className={styles.countryText}>
+              <span
+                style={{ fontSize: "16px", fontWeight: "400", color: "black" }}
               >
-                <Dropdown.Item onClick={() => handleCountrySelect("Australia")}>
-                  Australia
-                </Dropdown.Item>
-              </DropdownButton>
+                Country
+              </span>
+            </div>
+            <div className={styles.countryItem}>
+              <Dropdown>
+                <Dropdown.Toggle
+                  id="dropdown-basic"
+                  variant="none"
+                  size="100"
+                  className={styles.dropdownIncome}
+                  style={{ width: "100%" }}
+                >
+                  {selectedCountry}
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item
+                    onClick={() => handleCountrySelect("Australia")}
+                  >
+                    Australia
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
           </div>
         </div>
 
         <div className={styles.salePurchaseContainer}>
           <div className={styles.purchaseContainer}>
-            <div>Enter purchase price of Crypto</div>
+            <div
+              style={{ fontSize: "16px", fontWeight: "400", color: "black" }}
+            >
+              Enter purchase price of Crypto
+            </div>
             <div className={styles.inputContainer}>
               <span className={styles.dollar}>$</span>
               <input
@@ -154,7 +190,11 @@ const Calculator = () => {
             </div>
           </div>
           <div className={styles.salePriceContainer}>
-            <div>Enter sale price of Crypto</div>
+            <div
+              style={{ fontSize: "16px", fontWeight: "400", color: "black" }}
+            >
+              Enter sale price of Crypto
+            </div>
             <div className={styles.inputContainer}>
               <span className={styles.dollar}>$</span>
               <input
@@ -167,7 +207,11 @@ const Calculator = () => {
         </div>
         <div className={styles.expensesInvestmentContainer}>
           <div className={styles.expensesContainer}>
-            <div>Enter your Expenses</div>
+            <div
+              style={{ fontSize: "16px", fontWeight: "400", color: "black" }}
+            >
+              Enter your Expenses
+            </div>
             <div className={styles.inputContainer}>
               <span className={styles.dollar}>$</span>
               <input
@@ -178,7 +222,11 @@ const Calculator = () => {
             </div>
           </div>
           <div className={styles.investmentContainer}>
-            <div>Investment Type</div>
+            <div
+              style={{ fontSize: "16px", fontWeight: "400", color: "black" }}
+            >
+              Investment Type
+            </div>
             <div style={{ display: "flex" }}>
               <div style={{ width: "100%" }}>
                 <div
@@ -188,7 +236,9 @@ const Calculator = () => {
                       : styles.investment
                   }
                   onClick={() => handleInvestment(0)}
-                ></div>
+                >
+                  {activeInvestment === 0 ? <span> ✓</span> : ""}
+                </div>
               </div>
               <div style={{ width: "100%" }}>
                 <div
@@ -198,7 +248,9 @@ const Calculator = () => {
                       : styles.investment
                   }
                   onClick={() => handleInvestment(1)}
-                ></div>
+                >
+                  {activeInvestment === 1 ? <span> ✓</span> : ""}
+                </div>
               </div>
             </div>
           </div>
@@ -212,7 +264,11 @@ const Calculator = () => {
 
         <div className={styles.incomeTaxRateContainer}>
           <div className={styles.incomeContainer}>
-            <div>Select Your Annual Income</div>
+            <div
+              style={{ fontSize: "16px", fontWeight: "400", color: "black" }}
+            >
+              Select Your Annual Income
+            </div>
             <Dropdown>
               <Dropdown.Toggle
                 id="dropdown-basic"
@@ -251,22 +307,39 @@ const Calculator = () => {
             </Dropdown>
           </div>
           <div className={styles.taxRateContainer}>
-            <div>Tax Rate</div>
-            <input style={{}} value={`${taxRate}`} readOnly />
+            <div
+              style={{ fontSize: "16px", fontWeight: "400", color: "black" }}
+            >
+              Tax Rate
+            </div>
+            <input
+              style={{}}
+              value={`${taxRate}`}
+              readOnly
+              className={styles.taxInput}
+            />
           </div>
         </div>
 
         {activeInvestment === 1 ? (
           <div className={styles.capitalGainLongTermGainContainer}>
             <div className={styles.capitalGainContainer}>
-              <div>Capital gains amount</div>
+              <div
+                style={{ fontSize: "16px", fontWeight: "400", color: "black" }}
+              >
+                Capital gains amount
+              </div>
               <div className={styles.inputContainer}>
                 <span className={styles.dollar}>$</span>
                 <input value={capitalGains} readOnly type="text" />
               </div>
             </div>
             <div className={styles.longTermGainContainer}>
-              <div>Discount for long term gains</div>
+              <div
+                style={{ fontSize: "16px", fontWeight: "400", color: "black" }}
+              >
+                Discount for long term gains
+              </div>
               <div className={styles.inputContainer}>
                 <span className={styles.dollar}>$</span>
                 <input type="text" value={discount} />
@@ -277,13 +350,19 @@ const Calculator = () => {
 
         <div className={styles.taxContainer}>
           <div className={styles.capitalTaxContainer}>
-            <div>
-              <h3>Net Capital gains tax amount</h3>
-              <h3>$ {activeInvestment === 1 ? discount : capitalGains}</h3>
-            </div>
+            <span>Net Capital gains tax amount</span>
+            <h3
+              style={{
+                color: "#0fba83",
+                fontSize: "24px",
+                fontWeight: "700",
+              }}
+            >
+              $ {capitalGains}
+            </h3>
           </div>
           <div className={styles.taxPayContainer}>
-            <h4>The tax you need to pay*</h4>
+            <span>The tax you need to pay*</span>
             <h3
               style={{
                 color: "#0141CF",
@@ -291,10 +370,7 @@ const Calculator = () => {
                 fontWeight: "700",
               }}
             >
-              ${" "}
-              {activeInvestment === 1
-                ? (discount * tax) / 100
-                : (capitalGains * tax) / 100}
+              $ {(capitalGains * tax) / 100}
             </h3>
           </div>
         </div>
@@ -305,12 +381,11 @@ const Calculator = () => {
           With our range of features that you can equip for free, KoinX allows
           you to be more educated and aware of your tax reports.
         </p>
-        <img
-          src={getStarted}
-          alt="getStarted image"
-          className={styles.getStartedImage}
-        />
-        <button>Get Started for Free →</button>
+        <div className={styles.getStartedImage}>
+          <img src={getStarted} alt="getStarted img" />
+        </div>
+
+        <button className={styles.btn}>Get Started for Free →</button>
       </div>
     </div>
   );

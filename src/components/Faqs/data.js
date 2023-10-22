@@ -24,7 +24,9 @@ export const faq = [
     id: 4,
     question: "How do I lower my cryptocurrency taxes?",
     answer:
-      "Here are the top 6 strategies for lowering your cryptocurrency taxes in Australia:",
+      "Here are the top 6 strategies for lowering your cryptocurrency taxes in Australia:" +
+      "\n" +
+      "Hold for over 12 months- Hold your crypto for more than 12 months to qualify for a 50% long-term CGT discount to reduce your tax liability.  Offset gains with losses- Offset capital gains with capital losses from cryptocurrency, reducing your overall tax burden. Claim tax deductions- Explore opportunities to claim significant deductions on your regular income if you're a trader or running a crypto business.",
   },
   {
     id: 5,

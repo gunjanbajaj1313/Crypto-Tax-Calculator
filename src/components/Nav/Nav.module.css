@@ -40,34 +40,34 @@
 
 @media (max-width: 800px) {
   .navContainer {
-    height: auto; /* Remove fixed height for responsiveness */
-    /* Stack items vertically on smaller screens */
+    height: auto;
+
     align-items: center;
     justify-content: space-around;
-    flex-direction: column; /* Center items vertically on smaller screens */
+    flex-direction: column;
   }
   .logo {
     margin: 20px 0;
     width: 100%;
-    justify-content: space-around; /* Adjust margin for the logo */
+    justify-content: space-around;
   }
   .navItems {
-    flex-direction: column; /* Stack nav items vertically on smaller screens */
-    gap: 10px; /* Adjust gap between nav items */
-    margin: 10px 0; /* Adjust margin for nav items */
-    display: none; /* Initially hide the nav items */
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+    display: none;
   }
   .menuIcon {
     display: block;
   }
   .navItems.show {
-    display: flex; /* Show the nav items when the .show class is applied */
+    display: flex;
   }
   .navItems h4 {
-    font-size: 16px; /* You can adjust the font size if needed */
+    font-size: 16px;
   }
   .signInButton {
-    width: 80%; /* Adjust button width to be 80% of the container */
-    margin: 10px 0; /* Adjust margin for the button */
+    width: 80%;
+    margin: 10px 0;
   }
 }
