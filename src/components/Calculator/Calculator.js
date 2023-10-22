@@ -358,7 +358,8 @@ const Calculator = () => {
                 fontWeight: "700",
               }}
             >
-              $ {capitalGains}
+              ${" "}
+              {activeInvestment === 1 ? capitalGains - discount : capitalGains}
             </h3>
           </div>
           <div className={styles.taxPayContainer}>
