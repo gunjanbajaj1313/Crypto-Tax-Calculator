@@ -1,0 +1,73 @@
+.navContainer {
+  width: 100%;
+  height: 10vh;
+  background-color: #ffff;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.logo {
+  margin: 30px;
+  display: flex;
+  align-items: center;
+}
+.navItems {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 15px;
+}
+.menuIcon {
+  display: none;
+}
+.navItems h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.signInButton {
+  border: 1px solid #0052fe;
+  color: #0052fe;
+  border-radius: 5px;
+  width: 8vw;
+  height: 5vh;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #ffff;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+@media (max-width: 800px) {
+  .navContainer {
+    height: auto; /* Remove fixed height for responsiveness */
+    /* Stack items vertically on smaller screens */
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column; /* Center items vertically on smaller screens */
+  }
+  .logo {
+    margin: 20px 0;
+    width: 100%;
+    justify-content: space-around; /* Adjust margin for the logo */
+  }
+  .navItems {
+    flex-direction: column; /* Stack nav items vertically on smaller screens */
+    gap: 10px; /* Adjust gap between nav items */
+    margin: 10px 0; /* Adjust margin for nav items */
+    display: none; /* Initially hide the nav items */
+  }
+  .menuIcon {
+    display: block;
+  }
+  .navItems.show {
+    display: flex; /* Show the nav items when the .show class is applied */
+  }
+  .navItems h4 {
+    font-size: 16px; /* You can adjust the font size if needed */
+  }
+  .signInButton {
+    width: 80%; /* Adjust button width to be 80% of the container */
+    margin: 10px 0; /* Adjust margin for the button */
+  }
+}

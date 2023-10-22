@@ -1,0 +1,209 @@
+.mainContainer {
+  width: 100%;
+  display: flex;
+  background-color: #eff2f5;
+}
+.mainWrapper {
+  width: 70%;
+  background-color: #ffff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 16px;
+  margin: 20px;
+}
+.mainWrapper h2 {
+  color: #0f1629;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 15px auto;
+  text-align: center;
+}
+.yearCountry,
+.salePurchaseContainer,
+.expensesInvestmentContainer,
+.incomeTaxRateContainer,
+.capitalGainLongTermGainContainer,
+.taxContainer {
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  width: 90%;
+  align-items: center;
+  gap: 20px;
+}
+.yearCountry {
+  border-bottom: 1px solid grey;
+  padding-bottom: 20px;
+}
+.financialYear,
+.country {
+  display: flex;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.purchaseContainer,
+.salePriceContainer,
+.expensesContainer,
+.investmentContainer,
+.incomeContainer,
+.taxRateContainer,
+.capitalGainContainer,
+.longTermGainContainer,
+.capitalTaxContainer,
+.taxPayContainer {
+  display: flex;
+  width: 50%;
+  /* justify-content: center;
+  align-items: center; */
+  gap: 10px;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.inputContainer {
+  background-color: #eff2f5;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  display: flex;
+}
+input {
+  border: none;
+  outline: none;
+  padding-left: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  width: 100%;
+  background: transparent;
+}
+.dollar {
+  position: relative;
+  font-size: 24px;
+  top: 5px;
+  left: 15px;
+}
+.investment {
+  width: 90%;
+  height: 50px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.investmentActive {
+  border: 2px solid blue;
+  width: 90%;
+  height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.monthContainer {
+  width: 90%;
+  margin: 0px auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.monthItems {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+}
+.dropdownIncome {
+  background-color: #eff2f5;
+  width: 100%;
+  height: 50px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  padding-left: 5px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.dropdownIncome:hover {
+  background-color: #eff2f5;
+}
+.getStartedWrapper {
+  width: 25%;
+  margin: 20px;
+  background-color: #0052fe;
+  color: #ffffff;
+  border-radius: 16px;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.getStartedWrapper h4 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+.getStartedWrapper p {
+  font-size: 14px;
+  font-weight: 300;
+  padding: 5px;
+}
+.getStartedImage {
+  height: 50%;
+  width: 50%;
+  margin: 10px auto;
+}
+.getStartedWrapper button {
+  border: mone;
+  outline: none;
+  width: 15vw;
+  height: 10vh;
+  border-radius: 8px;
+  margin: 20px auto;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Your existing styles */
+
+/* Add this media query for screens less than 800px wide */
+@media (max-width: 800px) {
+  .mainContainer {
+    flex-direction: column; /* Stack elements vertically */
+  }
+  .mainWrapper {
+    width: 90%; /* Make the main content wider on smaller screens */
+  }
+  .yearCountry,
+  .salePurchaseContainer,
+  .expensesInvestmentContainer,
+  .incomeTaxRateContainer,
+  .capitalGainLongTermGainContainer,
+  .taxContainer {
+    flex-direction: column; /* Stack these elements vertically */
+    align-items: flex-start; /* Adjust alignment */
+  }
+  .financialYear,
+  .country,
+  .purchaseContainer,
+  .salePriceContainer,
+  .expensesContainer,
+  .investmentContainer,
+  .incomeContainer,
+  .taxRateContainer,
+  .capitalGainContainer,
+  .longTermGainContainer,
+  .capitalTaxContainer,
+  .taxPayContainer {
+    width: 100%; /* Make these elements take full width */
+  }
+  .getStartedWrapper {
+    width: 90%; /* Make the get started section wider on smaller screens */
+    margin: 10px auto; /* Adjust margin */
+  }
+  .getStartedImage {
+    height: 30%; /* Resize the image */
+    width: 60%; /* Resize the image */
+  }
+  .getStartedWrapper button {
+    width: 60vw; /* Adjust button width */
+    height: 8vh; /* Adjust button height */
+    margin: 10px auto; /* Adjust button margin */
+  }
+}

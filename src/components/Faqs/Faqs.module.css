@@ -1,0 +1,12 @@
+.faqWrapper {
+  width: 100%;
+  display: flex;
+  background-color: #eff2f5;
+}
+.contentContainer {
+  width: 70%;
+  background-color: #ffff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+}
